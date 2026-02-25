@@ -16,6 +16,8 @@ const G = () => (
     @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { max-width: 100%; overflow-x: hidden; }
+    body { max-width: 100%; overflow-x: hidden; }
 
     :root {
       --navy:      #0B1F3A;
@@ -57,6 +59,64 @@ const G = () => (
       --gutter: clamp(16px, 4vw, 60px);
     }
 
+    /* ── DARK MODE ── */
+    [data-theme="dark"] {
+      --navy:      #E8EDF4;
+      --navy-2:    #CDD6E4;
+      --navy-3:    #B0BED2;
+      --white:     #0F1923;
+      --bg:        #0A1219;
+      --bg-2:      #131E29;
+      --card:      #121C27;
+      --ink:       #E8EDF4;
+      --ink-2:     #C2CFE0;
+      --body:      #94A7BF;
+      --muted:     #607890;
+      --subtle:    #3D5468;
+      --border:    rgba(200, 220, 240, 0.08);
+      --border-2:  rgba(200, 220, 240, 0.14);
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15);
+      --shadow:    0 4px 16px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.20);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.25);
+      --shadow-xl: 0 24px 64px rgba(0,0,0,0.40);
+    }
+    [data-theme="dark"] .hero { background: #060D14; }
+    [data-theme="dark"] .hero-bg { background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(232,103,26,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 100%, rgba(45,125,210,0.06) 0%, transparent 70%); }
+    [data-theme="dark"] .svc-section { background: var(--bg); }
+    [data-theme="dark"] .svc-card { background: var(--card); border-color: var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    [data-theme="dark"] .svc-card:hover { border-color: var(--orange); box-shadow: 0 12px 36px rgba(0,0,0,0.3); }
+    [data-theme="dark"] .svc-blob-bg { background: linear-gradient(135deg, rgba(232,103,26,0.15) 0%, rgba(232,103,26,0.04) 100%); }
+    [data-theme="dark"] .svc-blob-icon { background: var(--card); border-color: var(--border); }
+    [data-theme="dark"] .ticker { background: var(--card); border-color: var(--border); }
+    [data-theme="dark"] .footer { background: #060D14; }
+    [data-theme="dark"] .cta { background: var(--bg); border-color: var(--border); }
+    [data-theme="dark"] .cta::before { background: radial-gradient(ellipse, rgba(232,103,26,0.04) 0%, transparent 70%); }
+    [data-theme="dark"] .ls-alt { background: var(--bg-2); }
+    [data-theme="dark"] .ls-h { color: var(--navy); }
+    [data-theme="dark"] .prop-banner { background: #1A2A3D; }
+    [data-theme="dark"] .demo-banner { background: linear-gradient(90deg, rgba(232,103,26,0.08) 0%, rgba(45,125,210,0.04) 100%); border-color: rgba(232,103,26,0.2); }
+    [data-theme="dark"] .tbl thead th { background: var(--bg-2); }
+    [data-theme="dark"] .tabs-row { background: var(--bg-2); border-color: var(--border); }
+    [data-theme="dark"] .tab.on { background: var(--card); color: var(--navy); box-shadow: var(--shadow-sm); }
+    [data-theme="dark"] .nav { background: var(--card); border-color: var(--border); }
+    [data-theme="dark"] .sidebar { background: var(--card); border-color: var(--border); }
+    [data-theme="dark"] .sidebar-profile { background: var(--bg-2); border-color: var(--border); }
+    [data-theme="dark"] .modal { background: var(--card); }
+    [data-theme="dark"] .overlay { background: rgba(0,0,0,0.6); }
+    [data-theme="dark"] .auth-right { background: var(--card); border-color: var(--border); }
+    [data-theme="dark"] .auth-left { background: #060D14; }
+    [data-theme="dark"] .step-card { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.06); }
+    [data-theme="dark"] .pc-pm { background: linear-gradient(140deg, #0A1219 0%, #16325A 100%); }
+    [data-theme="dark"] .fi { background: var(--bg-2); border-color: var(--border-2); color: var(--navy); }
+    [data-theme="dark"] .fi::placeholder { color: var(--subtle); }
+    [data-theme="dark"] .btn-outline { color: var(--navy); border-color: var(--border-2); }
+    [data-theme="dark"] .btn-outline:hover { background: var(--bg-2); }
+    [data-theme="dark"] .btn-ghost:hover { background: var(--bg-2); }
+    [data-theme="dark"] .jcard { background: var(--card); border-color: var(--border); }
+    [data-theme="dark"] .jcard:hover { border-color: var(--border-2); }
+    [data-theme="dark"] .jcard.active { border-color: rgba(232,103,26,0.3); background: linear-gradient(135deg, rgba(232,103,26,0.04) 0%, var(--card) 50%); }
+    [data-theme="dark"] .prog { background: var(--bg-2); }
+
     html { font-size: 16px; scroll-behavior: smooth; }
     body {
       font-family: var(--font-b);
@@ -86,9 +146,9 @@ const G = () => (
     .d5 { animation-delay: 0.30s; } .d6 { animation-delay: 0.36s; }
 
     /* ── LAYOUT ── */
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); width: 100%; overflow-x: hidden; }
     .portal-shell { display: flex; min-height: 100vh; padding-top: var(--nav-h); }
-    .portal-main  { margin-left: var(--side-w); flex: 1; padding: clamp(20px,3vw,40px) clamp(16px,3vw,40px); min-width: 0; background: var(--bg); }
+    .portal-main  { margin-left: var(--side-w); flex: 1; padding: clamp(20px,3vw,40px) clamp(16px,3vw,40px); min-width: 0; background: var(--bg); overflow-x: hidden; }
 
     /* ── GRID ── */
     .g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -109,7 +169,7 @@ const G = () => (
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
       width: 100%; max-width: 1440px; margin: 0 auto;
-      padding: 0 clamp(16px, 3vw, 48px);
+      padding: 0 clamp(12px, 3vw, 48px); gap: 8px; overflow: hidden;
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none; flex-shrink: 0; }
     .nav-logo-mark {
@@ -237,7 +297,8 @@ const G = () => (
     .ch-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
     /* ── TABLE ── */
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+    .table-wrap table { min-width: 600px; }
     .tbl { width: 100%; border-collapse: collapse; min-width: 480px; }
     .tbl thead th {
       text-align: left; padding: 11px 14px; font-size: 11px; font-weight: 700;
@@ -390,7 +451,7 @@ const G = () => (
         radial-gradient(ellipse 50% 40% at 80% 100%, rgba(45,125,210,0.10) 0%, transparent 70%);
     }
     /* hero dots removed - clean dark background */
-    .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+    .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; width: 100%; overflow: hidden; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 0; margin-bottom: 28px; }
     .hero-eyebrow-pill-l {
       background: var(--orange); border-radius: 100px; padding: 7px 16px;
@@ -439,7 +500,8 @@ const G = () => (
     .svc-section-wrap .ls-eyebrow { margin-bottom: 10px; }
     .svc-section-wrap .ls-h { max-width: 640px; margin: 0 auto 14px; }
     .svc-section-wrap .ls-p { max-width: 540px; margin: 0 auto 52px; }
-    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 100%; }
+    .svc-grid > *:last-child:nth-child(4n+1) { grid-column: 2 / span 2; }
     .svc-card {
       background: var(--white); border: 1.5px solid var(--border); border-radius: 20px;
       padding: 28px 24px 0 24px; transition: all 0.22s ease; overflow: hidden;
@@ -523,10 +585,131 @@ const G = () => (
     .demo-text span { color: var(--orange); font-weight: 700; }
 
     /* ── TOGGLE SWITCH ── */
-    .toggle { width: 40px; height: 22px; background: var(--green); border-radius: 11px; cursor: pointer; position: relative; flex-shrink: 0; transition: background var(--t); }
-    .toggle-thumb { width: 18px; height: 18px; background: white; border-radius: 50%; position: absolute; right: 2px; top: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.20); transition: right var(--t); }
+    .toggle { width: 40px; height: 22px; background: var(--border-2); border-radius: 11px; cursor: pointer; position: relative; flex-shrink: 0; transition: background var(--t); border: none; }
+    .toggle.on { background: var(--green); }
+    .toggle-thumb { width: 18px; height: 18px; background: white; border-radius: 50%; position: absolute; left: 2px; top: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.20); transition: left var(--t); }
+    .toggle.on .toggle-thumb { left: 20px; }
+
+    /* ── MOBILE MENU OVERLAY ── */
+    .mobile-menu-overlay { position: fixed; inset: 0; z-index: 1100; background: rgba(11,31,58,0.5); backdrop-filter: blur(4px); animation: fadeIn 0.2s ease both; }
+    [data-theme="dark"] .mobile-menu-overlay { background: rgba(0,0,0,0.6); }
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(320px, 85vw); z-index: 1101;
+      background: var(--white); box-shadow: var(--shadow-xl); display: flex; flex-direction: column;
+      animation: slideFromRight 0.28s cubic-bezier(0.4,0,0.2,1) both; overflow-y: auto;
+    }
+    @keyframes slideFromRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    .mobile-menu-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+    .mobile-menu-links { display: flex; flex-direction: column; padding: 12px; gap: 2px; flex: 1; }
+    .mobile-menu-link { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: var(--r); font-size: 14px; font-weight: 500; color: var(--body); cursor: pointer; transition: all var(--t); border: none; background: none; text-align: left; width: 100%; }
+    .mobile-menu-link:hover { background: var(--bg); color: var(--navy); }
+    .mobile-menu-link.active { background: var(--orange-lo); color: var(--orange); font-weight: 600; }
+    .mobile-menu-link svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.65; }
+    .mobile-menu-divider { height: 1px; background: var(--border); margin: 8px 14px; }
+    .mobile-menu-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--subtle); padding: 12px 14px 4px; }
+    .mobile-menu-footer { padding: 16px 20px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+
+    /* ── NOTIFICATION PANEL ── */
+    .notif-btn { position: relative; width: 36px; height: 36px; border-radius: var(--r); border: 1px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--body); transition: all var(--t); flex-shrink: 0; }
+    .notif-btn:hover { background: var(--bg); color: var(--navy); border-color: var(--border-2); }
+    .notif-btn svg { width: 16px; height: 16px; }
+    .notif-count { position: absolute; top: -4px; right: -4px; min-width: 16px; height: 16px; border-radius: 100px; background: var(--red); color: white; font-size: 9px; font-weight: 700; font-family: var(--font-m); display: flex; align-items: center; justify-content: center; padding: 0 4px; border: 2px solid var(--white); }
+    .notif-panel {
+      position: absolute; top: calc(var(--nav-h) - 4px); right: clamp(12px, 3vw, 48px); z-index: 1200;
+      width: min(400px, calc(100vw - 32px)); background: var(--white);
+      border: 1px solid var(--border); border-radius: var(--r-lg); box-shadow: var(--shadow-xl);
+      animation: popIn 0.22s ease both; overflow: hidden;
+    }
+    .notif-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    .notif-header-title { font-family: var(--font-d); font-size: 14px; font-weight: 700; color: var(--navy); }
+    .notif-list { max-height: 360px; overflow-y: auto; }
+    .notif-item { display: flex; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border); transition: background var(--t); cursor: pointer; }
+    .notif-item:hover { background: var(--bg); }
+    .notif-item:last-child { border-bottom: none; }
+    .notif-item.unread { background: var(--orange-lo); }
+    .notif-item.unread:hover { background: rgba(232,103,26,0.12); }
+    .notif-dot-wrap { padding-top: 3px; }
+    .notif-unread-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .notif-read-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border-2); flex-shrink: 0; }
+    .notif-body { flex: 1; min-width: 0; }
+    .notif-text { font-size: 13px; color: var(--body); line-height: 1.5; }
+    .notif-text strong { color: var(--navy); font-weight: 600; }
+    .notif-time { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-m); }
+    .notif-footer { padding: 10px 16px; text-align: center; border-top: 1px solid var(--border); }
+
+    /* ── SIDEBAR DRAWER (Mobile) ── */
+    .sidebar-drawer-overlay { position: fixed; inset: 0; z-index: 1050; background: rgba(11,31,58,0.45); backdrop-filter: blur(3px); animation: fadeIn 0.2s ease both; display: none; }
+    [data-theme="dark"] .sidebar-drawer-overlay { background: rgba(0,0,0,0.55); }
+    .sidebar-drawer {
+      position: fixed; top: var(--nav-h); left: 0; bottom: 0; width: min(260px, 80vw); z-index: 1051;
+      background: var(--white); border-right: 1px solid var(--border); box-shadow: var(--shadow-lg);
+      display: flex; flex-direction: column; padding: 20px 12px 24px;
+      animation: slideFromLeft 0.25s cubic-bezier(0.4,0,0.2,1) both; overflow-y: auto;
+    }
+    @keyframes slideFromLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+    @media (max-width: 1024px) {
+      .sidebar-drawer-overlay { display: block; }
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .search-input-wrap { position: relative; flex: 1; min-width: 200px; }
+    .search-input-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; color: var(--muted); pointer-events: none; }
+    .search-input { width: 100%; padding: 9px 14px 9px 36px; border: 1.5px solid var(--border-2); border-radius: var(--r); font-family: var(--font-b); font-size: 13px; color: var(--navy); background: var(--white); outline: none; transition: all var(--t); }
+    .search-input::placeholder { color: var(--subtle); }
+    .search-input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange-lo); }
+    [data-theme="dark"] .search-input { background: var(--bg-2); border-color: var(--border-2); color: var(--navy); }
+
+    /* ── DETAIL MODAL (wider) ── */
+    .modal-wide { max-width: 640px; }
+    .detail-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; min-width: 120px; }
+    .detail-value { font-size: 13.5px; color: var(--navy); font-weight: 500; text-align: right; flex: 1; }
+
+    /* ── CSS CHARTS ── */
+    .chart-bar-wrap { display: flex; align-items: flex-end; gap: 8px; height: 200px; padding: 0 4px 0 0; }
+    .chart-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+    .chart-bar { width: 100%; border-radius: 6px 6px 0 0; transition: height 0.8s cubic-bezier(0.4,0,0.2,1); min-height: 4px; position: relative; cursor: pointer; }
+    .chart-bar:hover { filter: brightness(1.15); }
+    .chart-bar-val { font-size: 10px; font-weight: 600; color: var(--muted); font-family: var(--font-m); white-space: nowrap; }
+    .chart-bar-label { font-size: 11px; color: var(--muted); }
+    .chart-donut-wrap { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .chart-donut { position: relative; width: 160px; height: 160px; }
+    .chart-donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .chart-donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .chart-donut-value { font-family: var(--font-d); font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1; }
+    .chart-donut-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .chart-legend { display: flex; flex-direction: column; gap: 10px; }
+    .chart-legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); }
+    .chart-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+    .chart-legend-val { margin-left: auto; font-weight: 600; color: var(--navy); font-family: var(--font-m); font-size: 12px; }
+
+    /* ── DARK MODE TOGGLE ── */
+    .dm-toggle { width: 36px; height: 36px; border-radius: var(--r); border: 1px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--body); transition: all var(--t); flex-shrink: 0; }
+    .dm-toggle:hover { background: var(--bg); color: var(--navy); border-color: var(--border-2); }
+    .dm-toggle svg { width: 16px; height: 16px; }
+
+    /* ── SIDEBAR TRIGGER (Mobile) ── */
+    .sidebar-trigger { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 900; width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: white; border: none; cursor: pointer; box-shadow: var(--shadow-lg); align-items: center; justify-content: center; transition: all var(--t); }
+    .sidebar-trigger:hover { transform: scale(1.08); box-shadow: 0 8px 28px rgba(232,103,26,0.4); }
+    .sidebar-trigger svg { width: 18px; height: 18px; }
+    @media (max-width: 1024px) { .sidebar-trigger { display: flex; } }
 
     /* ── RESPONSIVE ── */
+
+    /* Global mobile safety */
+    html, body { max-width: 100vw; overflow-x: hidden; }
+    img, svg, video, canvas { max-width: 100%; height: auto; }
+    * { -webkit-tap-highlight-color: transparent; }
+
+    /* Touch target minimum */
+    @media (pointer: coarse) {
+      .btn, .tab, .nav-link, .sidebar-item, .mobile-menu-link, .toggle, .notif-btn, .dm-toggle, .nav-hamburger {
+        min-height: 44px; min-width: 44px;
+      }
+      .tbl td, .tbl th { padding: 12px 14px; }
+    }
 
     /* Ultrawide (1600px+) */
     @media (min-width: 1600px) {
@@ -544,7 +727,9 @@ const G = () => (
       .g4 { grid-template-columns: repeat(2, 1fr); }
       .sg4 { grid-template-columns: repeat(2, 1fr); }
       .steps-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid > *:last-child:nth-child(2n+1) { grid-column: 1 / -1; max-width: 520px; justify-self: center; }
       .svc-grid { grid-template-columns: repeat(3, 1fr); }
+      .svc-grid > *:last-child:nth-child(4n+1) { grid-column: auto; }
     }
 
     /* Tablet (768–1024) */
@@ -558,35 +743,148 @@ const G = () => (
       .auth-right { width: 100%; border-left: none; }
       .g3 { grid-template-columns: repeat(2, 1fr); }
       .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .svc-grid > *:last-child:nth-child(2n+1) { grid-column: 1 / -1; max-width: calc(50% - 8px); justify-self: center; }
       .hero-stats { flex-wrap: wrap; }
       .hs { min-width: 40%; }
     }
 
     /* Large mobile (480–768) */
     @media (max-width: 768px) {
-      .g2, .g3, .sg4, .sg3, .sg2 { grid-template-columns: 1fr; }
-      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      :root { --gutter: 16px; }
+      .g2, .g3, .g4, .sg4, .sg3, .sg2 { grid-template-columns: 1fr; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .svc-grid > *:last-child:nth-child(2n+1) { grid-column: 1 / -1; max-width: 280px; justify-self: center; }
+      .svc-card { min-height: 200px; padding: 20px 18px 0 18px; }
+      .svc-name { font-size: 14px; }
+      .svc-desc { font-size: 12px; }
       .fr, .fr3 { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 14px; }
+      .step-card { padding: 24px 20px; }
+      .step-n { font-size: 48px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .nav-portal-label { display: none; }
+      .nav-cta > .btn-ghost,
+      .nav-cta > .btn-outline { display: none; }
+      .nav-cta > .btn-primary { display: none; }
       .ph-row { flex-direction: column; }
-      .tabs-row { flex-wrap: wrap; }
-      .hero-stats { flex-direction: column; }
-      .hs { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .tabs-row { flex-wrap: wrap; gap: 4px; }
+      .tab { font-size: 12px; padding: 8px 12px; }
+      .hero { padding: 60px var(--gutter) 48px; }
+      .hero-h1 { font-size: clamp(28px, 8vw, 40px); letter-spacing: -0.5px; }
+      .hero-p { font-size: 14px; margin-bottom: 28px; }
+      .hero-eyebrow { flex-wrap: wrap; justify-content: center; gap: 6px; }
+      .hero-eyebrow-pill-l { font-size: 10px; padding: 6px 12px; }
+      .hero-eyebrow-pill-r { font-size: 10px; padding: 6px 12px; }
+      .hero-stats { flex-direction: column; border-radius: 16px; }
+      .hs { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); padding: 16px 20px; flex-direction: row; justify-content: space-between; }
       .hs:last-child { border-bottom: none; }
-      .footer { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; }
-      .demo-banner { flex-direction: column; gap: 8px; }
+      .hs-n { font-size: 28px; }
+      .hs-l { margin-top: 0; font-size: 11px; }
+      .hero-btns { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+      .pshow { grid-template-columns: 1fr; gap: 16px; }
+      .pc { padding: 28px 22px; }
+      .pc-title { font-size: 24px; }
+      .pc-desc { font-size: 13px; }
+      .pc-gfx { font-size: 80px; }
+      .footer { flex-direction: column; text-align: center; gap: 12px; padding: 24px 16px; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+      .demo-banner { flex-direction: column; gap: 10px; padding: 14px 16px; }
+      .demo-text { font-size: 12px; min-width: 0; }
+      .chart-donut-wrap { flex-direction: column; align-items: center; gap: 20px; }
+      .chart-bar-wrap { height: 160px; }
+      .notif-panel { right: 8px; width: calc(100vw - 16px); }
+      .auth-wrap { flex-direction: column; }
+      .auth-left { padding: 40px 20px; min-height: auto; }
+      .auth-h { font-size: 28px; }
+      .auth-right { width: 100%; border-left: none; padding: 32px 20px; }
+      .auth-checks { margin-top: 28px; gap: 10px; }
+      .auth-check { font-size: 12px; }
+      .cta { padding: 48px 16px; }
+      .ls-h { font-size: clamp(24px, 6vw, 32px) !important; }
+      .ls-p { font-size: 14px !important; }
+      .modal { padding: 20px; margin: 12px; max-width: calc(100vw - 24px); }
+      .modal-wide { max-width: calc(100vw - 24px); }
+      .search-bar { gap: 8px; }
+      .search-input-wrap { min-width: 0; width: 100%; }
+      .tbl { font-size: 12px; }
+      .tbl th { font-size: 11px; padding: 10px 12px; }
+      .tbl td { padding: 10px 12px; }
+      .wizard { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .badge { font-size: 10px; padding: 3px 8px; }
+      .btn { font-size: 13px; padding: 10px 18px; }
+      .btn-sm { font-size: 12px; padding: 7px 14px; }
+      .btn-xl { padding: 13px 24px; font-size: 14px; }
+      .portal-main { padding: 16px 12px; }
+      .ga, .ga-wide { grid-template-columns: 1fr; gap: 16px; }
+      .card { padding: 18px 16px; }
     }
 
     /* Small mobile (< 480) */
     @media (max-width: 480px) {
-      :root { --nav-h: 56px; }
-      .btn-xl { padding: 13px 24px; font-size: 14px; }
-      .modal { padding: 20px; }
-      .hero-btns { flex-direction: column; align-items: center; }
-      .hero-btns .btn { width: 100%; max-width: 320px; }
+      :root { --nav-h: 56px; --gutter: 12px; }
+      .hero { padding: 48px 12px 40px; }
+      .hero-h1 { font-size: 26px; line-height: 1.1; }
+      .hero-p { font-size: 13px; line-height: 1.6; }
+      .hero-eyebrow { gap: 4px; margin-bottom: 20px; }
+      .hero-eyebrow-pill-l, .hero-eyebrow-pill-r { font-size: 9px; padding: 5px 10px; letter-spacing: 1px; }
+      .hs-n { font-size: 24px; }
+      .hs-l { font-size: 10px; }
+      .svc-grid { grid-template-columns: 1fr; gap: 10px; }
+      .svc-grid > *:last-child:nth-child(2n+1) { max-width: 100%; }
+      .svc-card { min-height: 180px; padding: 18px 16px 0 16px; }
+      .step-card { padding: 20px 16px; }
+      .step-n { font-size: 40px; right: 14px; top: 14px; }
+      .step-t { font-size: 16px; }
+      .step-d { font-size: 12.5px; }
+      .pc { padding: 24px 18px; }
+      .pc-title { font-size: 20px; }
+      .pc-desc { font-size: 12px; margin-bottom: 20px; }
+      .pc-gfx { font-size: 60px; }
+      .pc-feats { gap: 4px; }
+      .pc-feat { font-size: 10px; padding: 3px 8px; }
+      .btn { padding: 11px 16px; font-size: 13px; }
+      .btn-xl { padding: 14px 20px; font-size: 14px; width: 100%; }
+      .modal { padding: 18px 14px; margin: 8px; max-width: calc(100vw - 16px); border-radius: 16px; }
+      .modal-wide { max-width: calc(100vw - 16px); }
+      .chart-donut { width: 120px; height: 120px; }
+      .chart-donut-value { font-size: 20px; }
+      .chart-bar-wrap { height: 140px; gap: 4px; }
+      .detail-row { flex-direction: column; gap: 4px; }
+      .detail-value { text-align: left; }
+      .ticker { height: 30px; }
+      .ticker-item { font-size: 12px; gap: 6px; padding: 0 16px; }
+      .cta { padding: 40px 12px; }
+      .auth-left { padding: 32px 16px; }
+      .auth-h { font-size: 24px; }
+      .auth-p { font-size: 13px; }
+      .auth-right { padding: 28px 16px; }
+      .auth-ft { font-size: 20px; }
+      .auth-fs { font-size: 13px; }
+      .fi { font-size: 14px; padding: 11px 14px; }
+      .fl { font-size: 12px; }
+      .portal-main { padding: 12px 10px; }
+      .sidebar-trigger { bottom: 16px; left: 16px; width: 48px; height: 48px; }
+      .mobile-menu { width: min(300px, 90vw); }
+      .demo-banner { padding: 12px; border-radius: 10px; }
+      .demo-text { font-size: 11px; }
+      .demo-banner .btn { font-size: 11px; padding: 6px 10px; white-space: nowrap; }
+    }
+
+    /* Very small mobile (< 360) — older iPhones, small Androids */
+    @media (max-width: 360px) {
+      :root { --gutter: 10px; }
+      .hero-h1 { font-size: 22px; }
+      .hero-p { font-size: 12px; }
+      .hero-eyebrow-pill-l, .hero-eyebrow-pill-r { font-size: 8px; padding: 4px 8px; }
+      .hs-n { font-size: 20px; }
+      .pc-title { font-size: 18px; }
+      .nav-logo-text { font-size: 14px; }
+      .nav-logo-sub { font-size: 7px; }
+      .nav-logo-mark { width: 30px; height: 30px; }
+      .btn { font-size: 12px; padding: 10px 14px; }
+      .svc-name { font-size: 13px; }
     }
   `}</style>
 );
@@ -626,6 +924,13 @@ const I = {
   export:  (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M16 11v4a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-4M9 2v10M5.5 5.5L9 2l3.5 3.5"/></svg>),
   tag:     (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M2 2h6l8 8a2.83 2.83 0 0 1 0 4l-3 3a2.83 2.83 0 0 1-4 0L1 9V2h1z"/><circle cx="5.5" cy="5.5" r="1"/></svg>),
   star:    (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M9 1l2 5.5h5.5l-4.5 3.5 1.7 5.5L9 12.5l-4.7 3 1.7-5.5L1.5 6.5H7z"/></svg>),
+  bell:    (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M13.5 6.5a4.5 4.5 0 1 0-9 0C4.5 11 2.5 12.5 2.5 12.5h13s-2-1.5-2-6z"/><path d="M10.3 15.5a1.8 1.8 0 0 1-2.6 0"/></svg>),
+  search:  (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><circle cx="7.5" cy="7.5" r="5"/><path d="M16 16l-4.5-4.5"/></svg>),
+  moon:    (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M15.5 9.5A6.5 6.5 0 1 1 8.5 2.5a5 5 0 0 0 7 7z"/></svg>),
+  sun:     (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><circle cx="9" cy="9" r="3.5"/><path d="M9 1.5v2M9 14.5v2M1.5 9h2M14.5 9h2M3.7 3.7l1.4 1.4M12.9 12.9l1.4 1.4M14.3 3.7l-1.4 1.4M5.1 12.9l-1.4 1.4"/></svg>),
+  menu:    (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M2 4.5h14M2 9h14M2 13.5h14"/></svg>),
+  sidebar: (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><rect x="1.5" y="2.5" width="15" height="13" rx="1.5"/><path d="M6 2.5v13"/></svg>),
+  filter:  (<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h14l-5.5 6.5V15l-3-1.5V9.5L2 3z"/></svg>),
 };
 
 // ─────────────────────────────────────────────────────────────────────
@@ -665,6 +970,16 @@ const VJOBS = [
   { id:"JOB-101", svc:"Carpet Cleaning",    prop:"Bayview Office Center",  addr:"5500 Bayshore Dr, Tampa, FL",     unit:"Suite 200",  date:"Jun 27", time:"7:00 AM",  status:"Completed",   amt:220,  notes:"Completed. Invoice submitted and confirmed." },
 ];
 
+const NOTIFICATIONS = [
+  { id: 1, text: '<strong>REQ-0037</strong> — Emergency Restoration assigned to RestoreMasters. Vendor confirmed dispatch.', time: '12 min ago', read: false },
+  { id: 2, text: '<strong>CleanPro LLC</strong> started turnover at Hillcrest Unit B-302. ETA 2 hours.', time: '45 min ago', read: false },
+  { id: 3, text: 'Invoice <strong>INV-0041</strong> from AirFlow Pros marked as paid — $450.00', time: '2h ago', read: false },
+  { id: 4, text: '<strong>REQ-0040</strong> — Plumbing scheduled for June 30 at Riverside Commons A-104.', time: '4h ago', read: true },
+  { id: 5, text: 'New vendor application: <strong>ProShine Cleaning Services</strong> — Review pending.', time: '6h ago', read: true },
+  { id: 6, text: '<strong>REQ-0039</strong> — HVAC maintenance completed at Hillcrest Common Area. 5-star rating.', time: 'Yesterday', read: true },
+  { id: 7, text: 'Payout processed: <strong>$2,890</strong> to CleanPro LLC for May 2025 jobs.', time: '2 days ago', read: true },
+];
+
 // ─────────────────────────────────────────────────────────────────────
 // UTILITIES
 // ─────────────────────────────────────────────────────────────────────
@@ -698,50 +1013,177 @@ function Toast({ msg, type, clear }) {
 // ─────────────────────────────────────────────────────────────────────
 // NAVBAR
 // ─────────────────────────────────────────────────────────────────────
-function Nav({ view, onNav, role, onLogout }) {
+function Nav({ view, onNav, role, onLogout, darkMode, toggleDark }) {
   const inPortal = role !== null;
   const roleLabel = { pm: "Property Manager", vendor: "Vendor", admin: "Admin" };
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [notifOpen, setNotifOpen] = useState(false);
+  const [notifs, setNotifs] = useState(NOTIFICATIONS);
+  const notifRef = useRef(null);
+  const unread = notifs.filter(n => !n.read).length;
+
+  // Close notif panel on outside click
+  useEffect(() => {
+    const handler = e => { if (notifRef.current && !notifRef.current.contains(e.target)) setNotifOpen(false); };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const markAllRead = () => setNotifs(ns => ns.map(n => ({ ...n, read: true })));
+  const markRead = id => setNotifs(ns => ns.map(n => n.id === id ? { ...n, read: true } : n));
 
   return (
-    <nav className="nav">
-      <div className="nav-inner">
-        <div className="nav-logo" onClick={() => { if (role === "pm") onNav("pm-dash"); else if (role === "vendor") onNav("v-dash"); else if (role === "admin") onNav("a-dash"); else onNav("home"); }}>
-          <div className="nav-logo-mark">
-            <svg viewBox="0 0 24 24"><path d="M12 2L4 7v5c0 5.25 3.4 10.14 8 11.32C16.6 22.14 20 17.25 20 12V7L12 2z"/></svg>
+    <>
+      <nav className="nav">
+        <div className="nav-inner">
+          <div className="nav-logo" onClick={() => { if (role === "pm") onNav("pm-dash"); else if (role === "vendor") onNav("v-dash"); else if (role === "admin") onNav("a-dash"); else onNav("home"); }}>
+            <div className="nav-logo-mark">
+              <svg viewBox="0 0 24 24"><path d="M12 2L4 7v5c0 5.25 3.4 10.14 8 11.32C16.6 22.14 20 17.25 20 12V7L12 2z"/></svg>
+            </div>
+            <div>
+              <div className="nav-logo-text"><span>1STOP</span> SERVICE PRO</div>
+              <span className="nav-logo-sub">Powered by 1st Choice All-Purpose</span>
+            </div>
           </div>
-          <div>
-            <div className="nav-logo-text"><span>1STOP</span> SERVICE PRO</div>
-            <span className="nav-logo-sub">Powered by 1st Choice All-Purpose</span>
-          </div>
-        </div>
 
-        {!inPortal ? (
-          <>
-            <div className="nav-links">
-              <button className="nav-link" onClick={() => onNav("home")}>Home</button>
-              <button className="nav-link" onClick={() => { onNav("home"); setTimeout(()=>{ const el=document.getElementById("services"); if(el) el.scrollIntoView({behavior:"smooth"}); },80); }}>Services</button>
-              <button className="nav-link" onClick={() => { onNav("home"); setTimeout(()=>{ const el=document.getElementById("how"); if(el) el.scrollIntoView({behavior:"smooth"}); },80); }}>How It Works</button>
-              <button className="nav-link" onClick={() => onNav("pm-dash")}>Manager Portal</button>
-              <button className="nav-link" onClick={() => onNav("v-dash")}>Vendor Portal</button>
-            </div>
+          {!inPortal ? (
+            <>
+              <div className="nav-links">
+                <button className="nav-link" onClick={() => onNav("home")}>Home</button>
+                <button className="nav-link" onClick={() => { onNav("home"); setTimeout(()=>{ const el=document.getElementById("services"); if(el) el.scrollIntoView({behavior:"smooth"}); },80); }}>Services</button>
+                <button className="nav-link" onClick={() => { onNav("home"); setTimeout(()=>{ const el=document.getElementById("how"); if(el) el.scrollIntoView({behavior:"smooth"}); },80); }}>How It Works</button>
+                <button className="nav-link" onClick={() => onNav("pm-dash")}>Manager Portal</button>
+                <button className="nav-link" onClick={() => onNav("v-dash")}>Vendor Portal</button>
+              </div>
+              <div className="nav-cta">
+                <button className="dm-toggle" onClick={toggleDark} title={darkMode ? "Light mode" : "Dark mode"}>
+                  {darkMode ? I.sun : I.moon}
+                </button>
+                <button className="btn btn-ghost btn-sm" onClick={() => onNav("pm-login")}>Sign In</button>
+                <button className="btn btn-primary btn-sm" onClick={() => onNav("pm-dash")}>Get Started {I.arrow}</button>
+                <button className="nav-hamburger" onClick={() => setMobileOpen(true)}>
+                  <span /><span /><span />
+                </button>
+              </div>
+            </>
+          ) : (
             <div className="nav-cta">
-              <button className="btn btn-ghost btn-sm" onClick={() => onNav("pm-login")}>Sign In</button>
-              <button className="btn btn-primary btn-sm" onClick={() => onNav("pm-dash")}>Get Started {I.arrow}</button>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <button className="dm-toggle" onClick={toggleDark} title={darkMode ? "Light mode" : "Dark mode"}>
+                  {darkMode ? I.sun : I.moon}
+                </button>
+                <div ref={notifRef} style={{ position: "relative" }}>
+                  <button className="notif-btn" onClick={() => setNotifOpen(!notifOpen)}>
+                    {I.bell}
+                    {unread > 0 && <span className="notif-count">{unread}</span>}
+                  </button>
+                  {notifOpen && (
+                    <div className="notif-panel">
+                      <div className="notif-header">
+                        <span className="notif-header-title">Notifications {unread > 0 && `(${unread})`}</span>
+                        {unread > 0 && <button className="btn btn-ghost btn-sm" onClick={markAllRead} style={{ fontSize: 12 }}>Mark all read</button>}
+                      </div>
+                      <div className="notif-list">
+                        {notifs.map(n => (
+                          <div key={n.id} className={`notif-item ${!n.read ? "unread" : ""}`} onClick={() => { markRead(n.id); setNotifOpen(false); }}>
+                            <div className="notif-dot-wrap">
+                              <div className={!n.read ? "notif-unread-dot" : "notif-read-dot"} />
+                            </div>
+                            <div className="notif-body">
+                              <div className="notif-text" dangerouslySetInnerHTML={{ __html: n.text }} />
+                              <div className="notif-time">{n.time}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="notif-footer">
+                        <button className="btn btn-ghost btn-sm" style={{ fontSize: 12, color: "var(--orange)" }}>View All Notifications</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <span className="nav-portal-label">{roleLabel[role]} Portal</span>
+              <button className="btn btn-ghost btn-sm" onClick={() => onNav(role === "pm" ? "v-dash" : role === "vendor" ? "a-dash" : "pm-dash")}>
+                Switch Portal
+              </button>
+              <button className="btn btn-outline btn-sm" onClick={onLogout} style={{ gap: 6 }}>
+                {I.logout} Exit Portal
+              </button>
+              <button className="nav-hamburger" onClick={() => setMobileOpen(true)}>
+                <span /><span /><span />
+              </button>
             </div>
-          </>
-        ) : (
-          <div className="nav-cta">
-            <span className="nav-portal-label">{roleLabel[role]} Portal</span>
-            <button className="btn btn-ghost btn-sm" onClick={() => onNav(role === "pm" ? "v-dash" : "pm-dash")}>
-              Switch Portal
-            </button>
-            <button className="btn btn-outline btn-sm" onClick={onLogout} style={{ gap: 6 }}>
-              {I.logout} Exit Portal
-            </button>
+          )}
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {mobileOpen && (
+        <>
+          <div className="mobile-menu-overlay" onClick={() => setMobileOpen(false)} />
+          <div className="mobile-menu">
+            <div className="mobile-menu-header">
+              <div className="nav-logo-text" style={{ fontSize: 15 }}><span style={{ color: "var(--orange)" }}>1STOP</span> SERVICE PRO</div>
+              <button className="modal-x" onClick={() => setMobileOpen(false)}>{I.x}</button>
+            </div>
+            <div className="mobile-menu-links">
+              {!inPortal ? (
+                <>
+                  <button className="mobile-menu-link" onClick={() => { onNav("home"); setMobileOpen(false); }}>{I.dash} Home</button>
+                  <button className="mobile-menu-link" onClick={() => { onNav("home"); setMobileOpen(false); setTimeout(()=>{ const el=document.getElementById("services"); if(el) el.scrollIntoView({behavior:"smooth"}); },100); }}>{I.wrench} Services</button>
+                  <button className="mobile-menu-link" onClick={() => { onNav("home"); setMobileOpen(false); setTimeout(()=>{ const el=document.getElementById("how"); if(el) el.scrollIntoView({behavior:"smooth"}); },100); }}>{I.info} How It Works</button>
+                  <div className="mobile-menu-divider" />
+                  <div className="mobile-menu-section">Portals</div>
+                  <button className="mobile-menu-link" onClick={() => { onNav("pm-dash"); setMobileOpen(false); }}>{I.bld} Manager Portal</button>
+                  <button className="mobile-menu-link" onClick={() => { onNav("v-dash"); setMobileOpen(false); }}>{I.wrench} Vendor Portal</button>
+                  <button className="mobile-menu-link" onClick={() => { onNav("a-dash"); setMobileOpen(false); }}>{I.shield} Admin Portal</button>
+                </>
+              ) : (
+                <>
+                  <div className="mobile-menu-section">{roleLabel[role]} Portal</div>
+                  {role === "pm" && [
+                    ["pm-dash","Dashboard",I.dash],["pm-props","Properties",I.bld],["pm-reqs","Service Requests",I.list],
+                    ["pm-new","New Request",I.plus],["pm-inv","Invoices & Billing",I.dollar],["pm-anal","Analytics",I.chart],["pm-acct","Settings",I.gear],
+                  ].map(([id, label, icon]) => (
+                    <button key={id} className={`mobile-menu-link ${view === id ? "active" : ""}`} onClick={() => { onNav(id); setMobileOpen(false); }}>{icon} {label}</button>
+                  ))}
+                  {role === "vendor" && [
+                    ["v-dash","Dashboard",I.dash],["v-avail","Available Jobs",I.tag],["v-jobs","My Jobs",I.list],
+                    ["v-team","Team",I.users],["v-earn","Earnings",I.dollar],["v-perf","Performance",I.chart],["v-acct","Settings",I.gear],
+                  ].map(([id, label, icon]) => (
+                    <button key={id} className={`mobile-menu-link ${view === id ? "active" : ""}`} onClick={() => { onNav(id); setMobileOpen(false); }}>{icon} {label}</button>
+                  ))}
+                  {role === "admin" && [
+                    ["a-dash","Overview",I.chart],["a-reqs","All Requests",I.list],["a-props","Properties",I.bld],["a-vend","Vendors",I.users],["a-set","Settings",I.gear],
+                  ].map(([id, label, icon]) => (
+                    <button key={id} className={`mobile-menu-link ${view === id ? "active" : ""}`} onClick={() => { onNav(id); setMobileOpen(false); }}>{icon} {label}</button>
+                  ))}
+                  <div className="mobile-menu-divider" />
+                  <button className="mobile-menu-link" onClick={() => { onNav(role === "pm" ? "v-dash" : role === "vendor" ? "a-dash" : "pm-dash"); setMobileOpen(false); }}>{I.arrow} Switch to {role === "pm" ? "Vendor" : role === "vendor" ? "Admin" : "Manager"} Portal</button>
+                </>
+              )}
+            </div>
+            <div className="mobile-menu-footer">
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 12, color: "var(--muted)" }}>{darkMode ? "Dark" : "Light"} Mode</span>
+                <button className={`toggle ${darkMode ? "on" : ""}`} onClick={toggleDark}><div className="toggle-thumb" /></button>
+              </div>
+              {inPortal && (
+                <button className="btn btn-outline btn-full btn-sm" onClick={() => { onLogout(); setMobileOpen(false); }} style={{ marginTop: 6 }}>
+                  {I.logout} Exit Portal
+                </button>
+              )}
+              {!inPortal && (
+                <button className="btn btn-primary btn-full btn-sm" onClick={() => { onNav("pm-login"); setMobileOpen(false); }}>
+                  Sign In
+                </button>
+              )}
+            </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </>
+      )}
+    </>
   );
 }
 
@@ -832,6 +1274,190 @@ function DemoBanner({ role, onNav }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────
+// SEARCH BAR
+// ─────────────────────────────────────────────────────────────────────
+function SearchBar({ placeholder, value, onChange }) {
+  return (
+    <div className="search-bar">
+      <div className="search-input-wrap">
+        {I.search}
+        <input className="search-input" placeholder={placeholder || "Search..."} value={value} onChange={e => onChange(e.target.value)} />
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// REQUEST DETAIL MODAL
+// ─────────────────────────────────────────────────────────────────────
+function RequestDetailModal({ req, onClose, showToast }) {
+  if (!req) return null;
+  const timelineItems = [
+    { t: "Request submitted by Marcus Johnson", time: `${req.date}, 8:15 AM`, dot: "green" },
+    { t: `Assigned to ${req.vendor || "Pending vendor assignment"}`, time: `${req.date}, 8:22 AM`, dot: req.vendor ? "green" : "gray" },
+    ...(req.status === "In Progress" ? [{ t: "Vendor started work on site", time: `${req.date}, 9:05 AM`, dot: "orange" }] : []),
+    ...(req.status === "Completed" ? [
+      { t: "Vendor started work on site", time: `${req.date}, 9:05 AM`, dot: "green" },
+      { t: "Job completed — photos uploaded", time: `${req.date}, 11:30 AM`, dot: "green" },
+    ] : []),
+    ...(req.status === "Scheduled" ? [{ t: `Scheduled for ${req.date}`, time: "Upcoming", dot: "gray" }] : []),
+  ];
+
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal modal-wide" onClick={e => e.stopPropagation()}>
+        <div className="modal-head">
+          <div>
+            <div className="modal-title" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <span className="mono" style={{ fontSize: 14 }}>{req.id}</span>
+              {statusBadge(req.status)}
+            </div>
+            <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 4 }}>{req.svc}</div>
+          </div>
+          <button className="modal-x" onClick={onClose}>{I.x}</button>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0 }}>
+          {[
+            ["Property", req.prop],
+            ["Unit / Area", req.unit],
+            ["Priority", null, priorityBadge(req.priority)],
+            ["Amount", `$${req.amt}`],
+            ["Vendor", req.vendor || "Unassigned"],
+            ["Requested Date", req.date],
+          ].map(([label, val, badge]) => (
+            <div key={label} className="detail-row" style={{ padding: "10px 8px" }}>
+              <span className="detail-label">{label}</span>
+              <span className="detail-value">{badge || val}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="divider" />
+        <div style={{ fontFamily: "var(--font-d)", fontSize: 14, fontWeight: 700, color: "var(--navy)", marginBottom: 12 }}>Activity Timeline</div>
+        <div className="tl">
+          {timelineItems.map((a, i) => (
+            <div className="tl-item" key={i}>
+              <div className={`tl-dot ${a.dot}`}>{a.dot === "green" ? I.check : null}</div>
+              <div className="tl-body">
+                <div className="tl-text">{a.t}</div>
+                <div className="tl-time">{a.time}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="divider" />
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {req.status !== "Completed" && (
+            <button className="btn btn-primary btn-sm" onClick={() => { showToast(`Status updated for ${req.id}.`, "ok"); onClose(); }}>{I.check} Update Status</button>
+          )}
+          <button className="btn btn-outline btn-sm" onClick={() => { showToast("Message sent to vendor.", "ok"); onClose(); }}>{I.send} Message Vendor</button>
+          <button className="btn btn-ghost btn-sm" onClick={() => { showToast("PDF downloaded.", "ok"); }}>{I.export} Download PDF</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// ADMIN: VENDOR ASSIGNMENT MODAL
+// ─────────────────────────────────────────────────────────────────────
+function VendorAssignModal({ req, onClose, showToast }) {
+  const [selectedVendor, setSelectedVendor] = useState("");
+  const [notes, setNotes] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const vendors = [
+    { id: "v1", name: "CleanPro LLC",        svcs: "Janitorial, Turnover", rating: 4.9, mkt: "Atlanta, GA" },
+    { id: "v2", name: "Metro Plumbing Co.",  svcs: "Plumbing",             rating: 4.8, mkt: "Orlando, FL" },
+    { id: "v3", name: "AirFlow Pros",        svcs: "HVAC",                  rating: 5.0, mkt: "Tampa, FL" },
+    { id: "v4", name: "RestoreMasters",      svcs: "Restoration",           rating: 4.7, mkt: "Miami, FL" },
+    { id: "v5", name: "BrightCoat Painting", svcs: "Painting",              rating: 4.6, mkt: "Charlotte, NC" },
+  ];
+
+  if (!req) return null;
+
+  const doAssign = () => {
+    if (!selectedVendor) { showToast("Please select a vendor.", "err"); return; }
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      const v = vendors.find(v => v.id === selectedVendor);
+      showToast(`${v?.name} assigned to ${req.id}. Vendor notified.`, "ok");
+      onClose();
+    }, 1100);
+  };
+
+  return (
+    <div className="overlay" onClick={onClose}>
+      <div className="modal modal-wide" onClick={e => e.stopPropagation()}>
+        <div className="modal-head">
+          <div>
+            <div className="modal-title">Assign Vendor</div>
+            <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 4 }}>
+              <span className="mono">{req.id}</span> — {req.svc} at {req.prop}
+            </div>
+          </div>
+          <button className="modal-x" onClick={onClose}>{I.x}</button>
+        </div>
+
+        <div style={{ marginBottom: 18, padding: "12px 14px", background: "var(--bg)", borderRadius: "var(--r)", border: "1px solid var(--border)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
+            {[["Service", req.svc], ["Property", req.prop], ["Unit", req.unit], ["Priority", req.priority]].map(([k, v]) => (
+              <div key={k}>
+                <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".8px", color: "var(--muted)", marginBottom: 3 }}>{k}</div>
+                <div style={{ fontSize: 13, color: "var(--navy)", fontWeight: 600 }}>{v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="fstack">
+          <div className="fg">
+            <label className="fl">Select Vendor</label>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {vendors.map(v => (
+                <div
+                  key={v.id}
+                  onClick={() => setSelectedVendor(v.id)}
+                  style={{
+                    padding: "12px 14px", borderRadius: "var(--r)", cursor: "pointer", transition: "all var(--t)",
+                    display: "flex", alignItems: "center", gap: 12,
+                    background: selectedVendor === v.id ? "var(--orange-lo)" : "var(--bg)",
+                    border: `1.5px solid ${selectedVendor === v.id ? "var(--orange)" : "var(--border)"}`,
+                  }}
+                >
+                  <div className="av av-navy" style={{ width: 32, height: 32, fontSize: 11 }}>{v.name.charAt(0)}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: selectedVendor === v.id ? "var(--orange)" : "var(--navy)" }}>{v.name}</div>
+                    <div style={{ fontSize: 11, color: "var(--muted)" }}>{v.svcs} — {v.mkt}</div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                    <svg viewBox="0 0 14 14" width="12" height="12" fill="var(--orange)"><path d="M7 1l1.5 4h4L9 8l1.5 4L7 10l-3.5 2L5 8 1.5 5h4z"/></svg>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--navy)", fontFamily: "var(--font-m)" }}>{v.rating}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="fg">
+            <label className="fl">Dispatch Notes (Optional)</label>
+            <textarea className="fi" placeholder="Special instructions for the vendor..." value={notes} onChange={e => setNotes(e.target.value)} style={{ minHeight: 72 }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <button className="btn btn-outline" onClick={onClose}>Cancel</button>
+            <button className={`btn btn-primary btn-lg ${loading ? "btn-loading" : ""}`} onClick={doAssign} disabled={loading}>
+              {!loading && <>{I.send} Assign & Notify Vendor</>}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
 // LANDING PAGE
 // ─────────────────────────────────────────────────────────────────────
 function Landing({ onNav }) {
@@ -866,7 +1492,7 @@ function Landing({ onNav }) {
             </button>
           </div>
           <div className="hero-stats a-up d4">
-            {[["50","+ States","Serving Nationwide"],["1,200","+ Vendors","Certified Network"],["98","%","On-Time Rate"],["$0","","Vendor Marketing Cost"]].map(([n, s, l]) => (
+            {[["50"," States","Serving Nationwide"],["1,200","+ Vendors","Certified Network"],["98","%","On-Time Rate"],["$0","","Vendor Marketing Cost"]].map(([n, s, l]) => (
               <div className="hs" key={l}>
                 <div className="hs-n">{n}<span>{s}</span></div>
                 <div className="hs-l">{l}</div>
@@ -1134,6 +1760,7 @@ function AuthScreen({ mode, role, onLogin, onNav }) {
 // PM: DASHBOARD
 // ─────────────────────────────────────────────────────────────────────
 function PMDash({ onNav, showToast, isDemo }) {
+  const [detailReq, setDetailReq] = useState(null);
   return (
     <div>
       {isDemo && <DemoBanner role="pm" onNav={onNav} />}
@@ -1181,7 +1808,7 @@ function PMDash({ onNav, showToast, isDemo }) {
               <thead><tr><th>Request ID</th><th>Service</th><th>Property</th><th>Vendor</th><th>Status</th><th>Amt</th></tr></thead>
               <tbody>
                 {REQUESTS.map(r => (
-                  <tr key={r.id}>
+                  <tr key={r.id} onClick={() => setDetailReq(r)} style={{ cursor: "pointer" }}>
                     <td><span className="mono">{r.id}</span></td>
                     <td><strong>{r.svc}</strong><br /><span style={{ fontSize: 11, color: "var(--muted)" }}>{r.unit}</span></td>
                     <td style={{ fontSize: 12 }}>{r.prop}</td>
@@ -1238,6 +1865,7 @@ function PMDash({ onNav, showToast, isDemo }) {
           </div>
         </div>
       </div>
+      {detailReq && <RequestDetailModal req={detailReq} onClose={() => setDetailReq(null)} showToast={showToast} />}
     </div>
   );
 }
@@ -1247,8 +1875,11 @@ function PMDash({ onNav, showToast, isDemo }) {
 // ─────────────────────────────────────────────────────────────────────
 function PMReqs({ onNav, showToast, isDemo }) {
   const [filter, setFilter] = useState("All");
+  const [search, setSearch] = useState("");
+  const [detailReq, setDetailReq] = useState(null);
   const statuses = ["All","In Progress","Scheduled","Pending","Completed"];
-  const rows = filter === "All" ? REQUESTS : REQUESTS.filter(r => r.status === filter);
+  const rows = (filter === "All" ? REQUESTS : REQUESTS.filter(r => r.status === filter))
+    .filter(r => search === "" || r.svc.toLowerCase().includes(search.toLowerCase()) || r.prop.toLowerCase().includes(search.toLowerCase()) || r.id.toLowerCase().includes(search.toLowerCase()) || (r.vendor || "").toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div>
@@ -1265,6 +1896,7 @@ function PMReqs({ onNav, showToast, isDemo }) {
           </div>
         </div>
       </div>
+      <SearchBar placeholder="Search by ID, service, property, or vendor..." value={search} onChange={setSearch} />
       <div className="tabs-row">
         {statuses.map(s => <div key={s} className={`tab ${filter === s ? "on" : ""}`} onClick={() => setFilter(s)}>{s}</div>)}
       </div>
@@ -1274,7 +1906,7 @@ function PMReqs({ onNav, showToast, isDemo }) {
             <thead><tr><th>ID</th><th>Service</th><th>Property / Unit</th><th>Vendor</th><th>Priority</th><th>Status</th><th>Date</th><th>Amount</th></tr></thead>
             <tbody>
               {rows.map(r => (
-                <tr key={r.id}>
+                <tr key={r.id} onClick={() => setDetailReq(r)} style={{ cursor: "pointer" }}>
                   <td><span className="mono">{r.id}</span></td>
                   <td><strong>{r.svc}</strong></td>
                   <td>{r.prop}<br /><span style={{ fontSize: 11, color: "var(--muted)" }}>{r.unit}</span></td>
@@ -1287,9 +1919,10 @@ function PMReqs({ onNav, showToast, isDemo }) {
               ))}
             </tbody>
           </table>
-          {rows.length === 0 && <div className="empty">{I.list}<div className="empty-t">No requests</div><div className="empty-s">No {filter.toLowerCase()} requests found</div></div>}
+          {rows.length === 0 && <div className="empty">{I.list}<div className="empty-t">No requests</div><div className="empty-s">{search ? "No matching requests" : `No ${filter.toLowerCase()} requests found`}</div></div>}
         </div>
       </div>
+      {detailReq && <RequestDetailModal req={detailReq} onClose={() => setDetailReq(null)} showToast={showToast} />}
     </div>
   );
 }
@@ -1537,6 +2170,7 @@ function PMProps({ onNav, showToast, isDemo }) {
 // ─────────────────────────────────────────────────────────────────────
 function PMAcct({ showToast, isDemo, onNav }) {
   const [saving, setSaving] = useState(false);
+  const [toggles, setToggles] = useState({ 0: true, 1: true, 2: true, 3: true, 4: true });
   const save = () => { setSaving(true); setTimeout(() => { setSaving(false); showToast("Profile saved.", "ok"); }, 900); };
 
   return (
@@ -1565,7 +2199,7 @@ function PMAcct({ showToast, isDemo, onNav }) {
           {["Job Assigned to Vendor","Vendor Arrived On Site","Job Completed","Invoice Ready","Urgent Status Change"].map((pref, i) => (
             <div key={pref} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 0", borderBottom: i < 4 ? "1px solid var(--border)" : "none" }}>
               <span style={{ fontSize: 13.5, color: "var(--body)" }}>{pref}</span>
-              <div className="toggle"><div className="toggle-thumb" /></div>
+              <button className={`toggle ${toggles[i] ? "on" : ""}`} onClick={() => setToggles(t => ({ ...t, [i]: !t[i] }))}><div className="toggle-thumb" /></button>
             </div>
           ))}
         </div>
@@ -1702,7 +2336,9 @@ function VDash({ onNav, showToast, isDemo }) {
 // ─────────────────────────────────────────────────────────────────────
 function VJobs({ showToast, isDemo, onNav }) {
   const [filter, setFilter] = useState("All");
-  const rows = filter === "All" ? VJOBS : VJOBS.filter(j => j.status === filter);
+  const [search, setSearch] = useState("");
+  const rows = (filter === "All" ? VJOBS : VJOBS.filter(j => j.status === filter))
+    .filter(j => search === "" || j.svc.toLowerCase().includes(search.toLowerCase()) || j.prop.toLowerCase().includes(search.toLowerCase()) || j.id.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div>
@@ -1711,6 +2347,7 @@ function VJobs({ showToast, isDemo, onNav }) {
         <div className="ph-title">My <b>Jobs</b></div>
         <div className="ph-sub">{VJOBS.length} assigned jobs</div>
       </div>
+      <SearchBar placeholder="Search by job ID, service, or property..." value={search} onChange={setSearch} />
       <div className="tabs-row">
         {["All","In Progress","Scheduled","Completed"].map(s => <div key={s} className={`tab ${filter === s ? "on" : ""}`} onClick={() => setFilter(s)}>{s}</div>)}
       </div>
@@ -1747,7 +2384,7 @@ function VJobs({ showToast, isDemo, onNav }) {
             </div>
           </div>
         ))}
-        {rows.length === 0 && <div className="empty card">{I.list}<div className="empty-t">No jobs found</div><div className="empty-s">No {filter.toLowerCase()} jobs at this time</div></div>}
+        {rows.length === 0 && <div className="empty card">{I.list}<div className="empty-t">No jobs found</div><div className="empty-s">{search ? "No matching jobs" : `No ${filter.toLowerCase()} jobs at this time`}</div></div>}
       </div>
     </div>
   );
@@ -1955,6 +2592,7 @@ function VAcct({ showToast, isDemo, onNav }) {
 // ADMIN: DASHBOARD
 // ─────────────────────────────────────────────────────────────────────
 function ADash({ onNav, showToast }) {
+  const [assignReq, setAssignReq] = useState(null);
   return (
     <div>
       <div className="ph">
@@ -2006,7 +2644,7 @@ function ADash({ onNav, showToast }) {
                     <td><strong>{r.svc}</strong></td>
                     <td style={{ fontSize: 12 }}>{r.prop}</td>
                     <td>{priorityBadge(r.priority)}</td>
-                    <td><button className="btn btn-primary btn-sm" onClick={() => showToast(`Vendor assigned to ${r.id}.`, "ok")}>Assign {I.arrow}</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => setAssignReq(r)}>Assign {I.arrow}</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -2043,6 +2681,7 @@ function ADash({ onNav, showToast }) {
           </div>
         </div>
       </div>
+      {assignReq && <VendorAssignModal req={assignReq} onClose={() => setAssignReq(null)} showToast={showToast} />}
     </div>
   );
 }
@@ -2051,6 +2690,11 @@ function ADash({ onNav, showToast }) {
 // ADMIN: REQUESTS
 // ─────────────────────────────────────────────────────────────────────
 function AReqs({ showToast }) {
+  const [search, setSearch] = useState("");
+  const [assignReq, setAssignReq] = useState(null);
+  const [detailReq, setDetailReq] = useState(null);
+  const rows = REQUESTS.filter(r => search === "" || r.svc.toLowerCase().includes(search.toLowerCase()) || r.prop.toLowerCase().includes(search.toLowerCase()) || r.id.toLowerCase().includes(search.toLowerCase()) || (r.vendor || "").toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div>
       <div className="ph">
@@ -2062,13 +2706,14 @@ function AReqs({ showToast }) {
           <button className="btn btn-outline btn-sm" onClick={() => showToast("CSV exported.", "ok")}>{I.export} Export CSV</button>
         </div>
       </div>
+      <SearchBar placeholder="Search requests by ID, service, property, or vendor..." value={search} onChange={setSearch} />
       <div className="card a-up">
         <div className="table-wrap">
           <table className="tbl">
             <thead><tr><th>ID</th><th>Service</th><th>Property / Unit</th><th>Manager</th><th>Vendor</th><th>Priority</th><th>Status</th><th>Amount</th><th></th></tr></thead>
             <tbody>
-              {REQUESTS.map(r => (
-                <tr key={r.id}>
+              {rows.map(r => (
+                <tr key={r.id} onClick={() => r.vendor ? setDetailReq(r) : null} style={{ cursor: r.vendor ? "pointer" : "default" }}>
                   <td><span className="mono">{r.id}</span></td>
                   <td><strong>{r.svc}</strong></td>
                   <td>{r.prop}<br /><span style={{ fontSize: 11, color: "var(--muted)" }}>{r.unit}</span></td>
@@ -2079,16 +2724,19 @@ function AReqs({ showToast }) {
                   <td><strong>${r.amt}</strong></td>
                   <td>
                     {!r.vendor
-                      ? <button className="btn btn-primary btn-sm" onClick={() => showToast(`Vendor assigned to ${r.id}.`, "ok")}>Assign</button>
-                      : <button className="btn btn-ghost btn-sm" onClick={() => showToast("Request details opened.", "ok")}>{I.eye}</button>
+                      ? <button className="btn btn-primary btn-sm" onClick={e => { e.stopPropagation(); setAssignReq(r); }}>Assign {I.arrow}</button>
+                      : <button className="btn btn-ghost btn-sm" onClick={e => { e.stopPropagation(); setDetailReq(r); }}>{I.eye}</button>
                     }
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          {rows.length === 0 && <div className="empty">{I.list}<div className="empty-t">No requests</div><div className="empty-s">No matching requests found</div></div>}
         </div>
       </div>
+      {assignReq && <VendorAssignModal req={assignReq} onClose={() => setAssignReq(null)} showToast={showToast} />}
+      {detailReq && <RequestDetailModal req={detailReq} onClose={() => setDetailReq(null)} showToast={showToast} />}
     </div>
   );
 }
@@ -2097,13 +2745,14 @@ function AReqs({ showToast }) {
 // ADMIN: VENDORS
 // ─────────────────────────────────────────────────────────────────────
 function AVend({ showToast }) {
+  const [search, setSearch] = useState("");
   const vends = [
     { name:"CleanPro LLC",        owner:"Marcus T.", svcs:["Janitorial","Turnover"], mkt:"Atlanta, GA",   jobs:47, rating:4.9, s:"Active", rev:"$8,240"  },
     { name:"Metro Plumbing Co.",  owner:"James R.",  svcs:["Plumbing"],              mkt:"Orlando, FL",   jobs:33, rating:4.8, s:"Active", rev:"$5,900"  },
     { name:"AirFlow Pros",        owner:"Sarah D.",  svcs:["HVAC"],                  mkt:"Tampa, FL",     jobs:28, rating:5.0, s:"Active", rev:"$12,600" },
     { name:"RestoreMasters",      owner:"Chris W.",  svcs:["Restoration"],           mkt:"Miami, FL",     jobs:15, rating:4.7, s:"Active", rev:"$18,000" },
     { name:"BrightCoat Painting", owner:"Ana M.",    svcs:["Painting"],              mkt:"Charlotte, NC", jobs:22, rating:4.6, s:"Inactive",rev:"$3,100"  },
-  ];
+  ].filter(v => search === "" || v.name.toLowerCase().includes(search.toLowerCase()) || v.owner.toLowerCase().includes(search.toLowerCase()) || v.mkt.toLowerCase().includes(search.toLowerCase()) || v.svcs.some(s => s.toLowerCase().includes(search.toLowerCase())));
 
   return (
     <div>
@@ -2111,11 +2760,12 @@ function AVend({ showToast }) {
         <div className="ph-row">
           <div>
             <div className="ph-title">Vendor <b>Network</b></div>
-            <div className="ph-sub">{vends.length} registered vendors across all markets</div>
+            <div className="ph-sub">5 registered vendors across all markets</div>
           </div>
           <button className="btn btn-primary btn-sm" onClick={() => showToast("Invitation sent.", "ok")}>{I.plus} Invite Vendor</button>
         </div>
       </div>
+      <SearchBar placeholder="Search vendors by name, service, or market..." value={search} onChange={setSearch} />
       <div className="card a-up">
         <div className="table-wrap">
           <table className="tbl">
@@ -2401,7 +3051,9 @@ const INVOICES = [
 
 function PMInv({ showToast, isDemo, onNav }) {
   const [filter, setFilter] = useState("All");
-  const rows = filter==="All" ? INVOICES : INVOICES.filter(i=>i.status===filter);
+  const [search, setSearch] = useState("");
+  const rows = (filter==="All" ? INVOICES : INVOICES.filter(i=>i.status===filter))
+    .filter(i => search === "" || i.id.toLowerCase().includes(search.toLowerCase()) || i.svc.toLowerCase().includes(search.toLowerCase()) || i.prop.toLowerCase().includes(search.toLowerCase()) || i.vendor.toLowerCase().includes(search.toLowerCase()));
   const total = INVOICES.reduce((s,i)=>s+i.amt,0);
   const paid = INVOICES.filter(i=>i.status==="Paid").reduce((s,i)=>s+i.amt,0);
   const due = INVOICES.filter(i=>i.status==="Due").reduce((s,i)=>s+i.amt,0);
@@ -2436,6 +3088,7 @@ function PMInv({ showToast, isDemo, onNav }) {
       <div className="tabs-row">
         {["All","Paid","Due","Pending"].map(s=><div key={s} className={`tab ${filter===s?"on":""}`} onClick={()=>setFilter(s)}>{s}</div>)}
       </div>
+      <SearchBar placeholder="Search invoices by ID, service, property, or vendor..." value={search} onChange={setSearch} />
       <div className="card a-up">
         <div className="table-wrap">
           <table className="tbl">
@@ -2479,6 +3132,38 @@ function PMAnalytics({ isDemo, onNav }) {
   ];
   const max = Math.max(...spendData.map(d=>d.v));
 
+  const svcBreakdown = [
+    {l:"Turnover Cleaning", v:31, amt:"$4,349", color:"var(--orange)"},
+    {l:"HVAC",             v:22, amt:"$3,087", color:"var(--blue)"},
+    {l:"Emergency Resto.", v:17, amt:"$2,385", color:"var(--red)"},
+    {l:"Plumbing",         v:14, amt:"$1,964", color:"var(--green)"},
+    {l:"Janitorial",       v:9,  amt:"$1,263", color:"#8B5CF6"},
+    {l:"Other",            v:7,  amt:"$982",   color:"var(--muted)"},
+  ];
+
+  // Donut chart segments
+  const circumference = 2 * Math.PI * 60;
+  let accumulated = 0;
+  const donutSegments = svcBreakdown.map(s => {
+    const offset = accumulated;
+    accumulated += (s.v / 100) * circumference;
+    return { ...s, dashoffset: circumference - (s.v / 100) * circumference, rotation: (offset / circumference) * 360 };
+  });
+
+  // Status donut
+  const statusData = [
+    { l: "Completed", v: 52, color: "var(--green)" },
+    { l: "In Progress", v: 24, color: "var(--orange)" },
+    { l: "Scheduled", v: 16, color: "var(--blue)" },
+    { l: "Pending", v: 8, color: "var(--muted)" },
+  ];
+  let accStatus = 0;
+  const statusSegments = statusData.map(s => {
+    const offset = accStatus;
+    accStatus += (s.v / 100) * circumference;
+    return { ...s, dashoffset: circumference - (s.v / 100) * circumference, rotation: (offset / circumference) * 360 };
+  });
+
   return (
     <div>
       {isDemo && <DemoBanner role="pm" onNav={onNav} />}
@@ -2500,53 +3185,119 @@ function PMAnalytics({ isDemo, onNav }) {
           </div>
         ))}
       </div>
-      <div className="g2">
-        <div className="card card-pad a-up d1">
-          <div className="ch"><div className="ch-title">Monthly Spend</div><div className="ch-sub">Last 6 months</div></div>
-          <div style={{display:"flex",alignItems:"flex-end",gap:10,height:180,paddingBottom:8}}>
-            {spendData.map(d=>(
-              <div key={d.month} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:6}}>
-                <div style={{fontSize:11,fontWeight:600,color:"var(--muted)",fontFamily:"var(--font-m)"}}>${(d.v/1000).toFixed(1)}k</div>
-                <div style={{width:"100%",background:"var(--orange)",borderRadius:"6px 6px 0 0",height:`${(d.v/max)*140}px`,transition:"height 0.6s ease",minHeight:4}}/>
-                <div style={{fontSize:11,color:"var(--muted)"}}>{d.month}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="card card-pad a-up d2">
-          <div className="ch"><div className="ch-title">Spend by Service Type</div></div>
-          {[
-            {l:"Turnover Cleaning", v:31, amt:"$4,349"},
-            {l:"HVAC",             v:22, amt:"$3,087"},
-            {l:"Emergency Resto.", v:17, amt:"$2,385"},
-            {l:"Plumbing",         v:14, amt:"$1,964"},
-            {l:"Janitorial",       v:9,  amt:"$1,263"},
-            {l:"Other",            v:7,  amt:"$982"},
-          ].map(s=>(
-            <div key={s.l} style={{marginBottom:13}}>
-              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,marginBottom:5}}>
-                <span style={{color:"var(--body)"}}>{s.l}</span>
-                <span style={{color:"var(--muted)",fontFamily:"var(--font-m)",fontSize:11}}>{s.amt} · <strong style={{color:"var(--navy)"}}>{s.v}%</strong></span>
-              </div>
-              <div className="prog"><div className="prog-fill" style={{width:`${s.v*3}%`}}/></div>
+
+      {/* Monthly Spend Bar Chart */}
+      <div className="card card-pad a-up d1" style={{marginBottom:16}}>
+        <div className="ch"><div className="ch-title">Monthly Spend</div><div className="ch-sub">Jan – Jun 2025</div></div>
+        <div className="chart-bar-wrap">
+          {spendData.map((d,i)=>(
+            <div key={d.month} className="chart-bar-col">
+              <div className="chart-bar-val">${(d.v/1000).toFixed(1)}k</div>
+              <div
+                className="chart-bar"
+                style={{
+                  height:`${(d.v/max)*160}px`,
+                  background: i === spendData.length - 1
+                    ? "linear-gradient(180deg, var(--orange) 0%, rgba(232,103,26,0.6) 100%)"
+                    : "linear-gradient(180deg, var(--navy-3, #16325A) 0%, rgba(11,31,58,0.3) 100%)",
+                  boxShadow: i === spendData.length - 1 ? "0 4px 12px rgba(232,103,26,0.25)" : "none",
+                }}
+              />
+              <div className="chart-bar-label" style={{ fontWeight: i === spendData.length - 1 ? 700 : 400, color: i === spendData.length - 1 ? "var(--orange)" : "var(--muted)" }}>{d.month}</div>
             </div>
           ))}
         </div>
       </div>
-      <div className="card card-pad a-up d3" style={{marginTop:16}}>
+
+      {/* Donut Charts Row */}
+      <div className="g2" style={{marginBottom:16}}>
+        <div className="card card-pad a-up d2">
+          <div className="ch"><div className="ch-title">Spend by Service</div></div>
+          <div className="chart-donut-wrap">
+            <div className="chart-donut">
+              <svg viewBox="0 0 140 140">
+                {donutSegments.map((s, i) => (
+                  <circle
+                    key={i} cx="70" cy="70" r="60"
+                    fill="none" stroke={s.color} strokeWidth="16"
+                    strokeDasharray={`${circumference}`}
+                    strokeDashoffset={s.dashoffset}
+                    style={{ transform: `rotate(${s.rotation - 90}deg)`, transformOrigin: '70px 70px', transition: 'stroke-dashoffset 1s ease' }}
+                    strokeLinecap="round"
+                  />
+                ))}
+              </svg>
+              <div className="chart-donut-center">
+                <div className="chart-donut-value">$14K</div>
+                <div className="chart-donut-label">total YTD</div>
+              </div>
+            </div>
+            <div className="chart-legend">
+              {svcBreakdown.map(s => (
+                <div key={s.l} className="chart-legend-item">
+                  <div className="chart-legend-dot" style={{ background: s.color }} />
+                  <span>{s.l}</span>
+                  <span className="chart-legend-val">{s.v}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="card card-pad a-up d3">
+          <div className="ch"><div className="ch-title">Request Status</div></div>
+          <div className="chart-donut-wrap">
+            <div className="chart-donut">
+              <svg viewBox="0 0 140 140">
+                {statusSegments.map((s, i) => (
+                  <circle
+                    key={i} cx="70" cy="70" r="60"
+                    fill="none" stroke={s.color} strokeWidth="16"
+                    strokeDasharray={`${circumference}`}
+                    strokeDashoffset={s.dashoffset}
+                    style={{ transform: `rotate(${s.rotation - 90}deg)`, transformOrigin: '70px 70px', transition: 'stroke-dashoffset 1s ease' }}
+                    strokeLinecap="round"
+                  />
+                ))}
+              </svg>
+              <div className="chart-donut-center">
+                <div className="chart-donut-value">247</div>
+                <div className="chart-donut-label">total requests</div>
+              </div>
+            </div>
+            <div className="chart-legend">
+              {statusData.map(s => (
+                <div key={s.l} className="chart-legend-item">
+                  <div className="chart-legend-dot" style={{ background: s.color }} />
+                  <span>{s.l}</span>
+                  <span className="chart-legend-val">{s.v}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Spend by Property Table */}
+      <div className="card card-pad a-up d4">
         <div className="ch"><div className="ch-title">Spend by Property</div></div>
         <div className="table-wrap">
           <table className="tbl">
             <thead><tr><th>Property</th><th>Units</th><th>Total Spend</th><th>Cost / Unit</th><th>Jobs</th><th>Top Service</th></tr></thead>
             <tbody>
               {[
-                {n:"Hillcrest Apartments",  u:48, spend:"$6,420", cpu:"$133.75", jobs:11, top:"Turnover Cleaning"},
-                {n:"Riverside Commons",     u:32, spend:"$3,890", cpu:"$121.56", jobs:7,  top:"Plumbing"},
-                {n:"Bayview Office Center", u:12, spend:"$2,100", cpu:"$175.00", jobs:3,  top:"Daily Janitorial"},
-                {n:"Palmetto HOA",          u:24, spend:"$1,620", cpu:"$67.50",  jobs:2,  top:"Emergency Restoration"},
+                {n:"Hillcrest Apartments",  u:48, spend:"$6,420", cpu:"$133.75", jobs:11, top:"Turnover Cleaning", pct:46},
+                {n:"Riverside Commons",     u:32, spend:"$3,890", cpu:"$121.56", jobs:7,  top:"Plumbing", pct:28},
+                {n:"Bayview Office Center", u:12, spend:"$2,100", cpu:"$175.00", jobs:3,  top:"Daily Janitorial", pct:15},
+                {n:"Palmetto HOA",          u:24, spend:"$1,620", cpu:"$67.50",  jobs:2,  top:"Emergency Restoration", pct:12},
               ].map(r=>(
                 <tr key={r.n}>
-                  <td><strong>{r.n}</strong></td>
+                  <td>
+                    <div>
+                      <strong>{r.n}</strong>
+                      <div className="prog" style={{marginTop:6,width:120}}><div className="prog-fill" style={{width:`${r.pct}%`}}/></div>
+                    </div>
+                  </td>
                   <td>{r.u}</td>
                   <td><strong>{r.spend}</strong></td>
                   <td style={{fontFamily:"var(--font-m)",fontSize:12}}>{r.cpu}</td>
@@ -2571,11 +3322,20 @@ export default function App() {
   const [user, setUser]     = useState(null);
   const [toast, setToast]   = useState(null);
   const [isDemo, setIsDemo] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Apply dark mode to document
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
+  const toggleDark = () => setDarkMode(d => !d);
   const showToast = (msg, type = "ok") => setToast({ msg, type });
 
   const nav = s => {
     setView(s);
+    setSidebarOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -2600,16 +3360,24 @@ export default function App() {
     setRole(null); setUser(null); setIsDemo(false); nav("home");
   };
 
-  // Handle nav — if no role and user hits a portal page, auto-demo them
+  // Handle nav — auto-detect portal and set role correctly
   const handleNav = s => {
     const pmPages = ["pm-dash","pm-props","pm-reqs","pm-new","pm-acct","pm-inv","pm-anal"];
     const vPages  = ["v-dash","v-jobs","v-team","v-earn","v-acct","v-avail","v-perf"];
     const aPages  = ["a-dash","a-reqs","a-props","a-vend","a-set"];
 
-    if (!role) {
-      if (pmPages.includes(s)) { enterDemo("pm"); return; }
-      if (vPages.includes(s))  { enterDemo("vendor"); return; }
-      if (aPages.includes(s))  { enterDemo("admin"); return; }
+    // Determine which portal this page belongs to
+    const targetRole = pmPages.includes(s) ? "pm" : vPages.includes(s) ? "vendor" : aPages.includes(s) ? "admin" : null;
+
+    // If navigating to a portal page, ensure role matches
+    if (targetRole) {
+      if (role !== targetRole) {
+        // Switching portals — update role and user context
+        const names = { pm:"Marcus Johnson", vendor:"CleanPro LLC", admin:"Platform Admin" };
+        setRole(targetRole);
+        setUser(names[targetRole]);
+        if (!role) setIsDemo(true); // first portal entry = demo mode
+      }
     }
     nav(s);
   };
@@ -2652,11 +3420,61 @@ export default function App() {
   return (
     <>
       <G />
-      <Nav view={view} onNav={handleNav} role={role} onLogout={logout} />
+      <Nav view={view} onNav={handleNav} role={role} onLogout={logout} darkMode={darkMode} toggleDark={toggleDark} />
 
       {inPortal ? (
         <div className="portal-shell">
           <Sidebar role={role} active={view} onNav={handleNav} user={user} />
+
+          {/* Mobile Sidebar Drawer */}
+          {sidebarOpen && (
+            <>
+              <div className="sidebar-drawer-overlay" onClick={() => setSidebarOpen(false)} />
+              <div className="sidebar-drawer">
+                <div className="sidebar-section">Navigation</div>
+                {(role === "pm" ? [
+                  { id:"pm-dash",label:"Dashboard",icon:"dash"},{ id:"pm-props",label:"Properties",icon:"bld"},
+                  { id:"pm-reqs",label:"Service Requests",icon:"list",badge:"4"},{ id:"pm-new",label:"New Request",icon:"plus"},
+                  { id:"pm-inv",label:"Invoices & Billing",icon:"dollar"},{ id:"pm-anal",label:"Analytics",icon:"chart"},
+                  { id:"pm-acct",label:"Settings",icon:"gear"},
+                ] : role === "vendor" ? [
+                  { id:"v-dash",label:"Dashboard",icon:"dash"},{ id:"v-avail",label:"Available Jobs",icon:"tag",badge:"5"},
+                  { id:"v-jobs",label:"My Jobs",icon:"list",badge:"3"},{ id:"v-team",label:"Team",icon:"users"},
+                  { id:"v-earn",label:"Earnings",icon:"dollar"},{ id:"v-perf",label:"Performance",icon:"chart"},
+                  { id:"v-acct",label:"Settings",icon:"gear"},
+                ] : [
+                  { id:"a-dash",label:"Overview",icon:"chart"},{ id:"a-reqs",label:"All Requests",icon:"list"},
+                  { id:"a-props",label:"Properties",icon:"bld"},{ id:"a-vend",label:"Vendors",icon:"users"},
+                  { id:"a-set",label:"Settings",icon:"gear"},
+                ]).map(item => (
+                  <div
+                    key={item.id}
+                    className={`sidebar-item ${view === item.id ? "active" : ""}`}
+                    onClick={() => { handleNav(item.id); setSidebarOpen(false); }}
+                  >
+                    <span style={{ display: "flex" }}>{I[item.icon]}</span>
+                    <span>{item.label}</span>
+                    {item.badge && <span className="sidebar-badge">{item.badge}</span>}
+                  </div>
+                ))}
+                <div className="sidebar-profile" style={{ marginTop: "auto" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div className="sp-av">{initials(user || "US")}</div>
+                    <div>
+                      <div className="sp-name">{user || "User"}</div>
+                      <div className="sp-role">{{ pm:"Property Manager", vendor:"Vendor Owner", admin:"Administrator" }[role]}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Sidebar trigger FAB for mobile */}
+          <button className="sidebar-trigger" onClick={() => setSidebarOpen(true)}>
+            {I.sidebar}
+          </button>
+
           <main className="portal-main">
             <div key={view} className="a-in">{renderView()}</div>
           </main>

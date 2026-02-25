@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: hidden; }
   :root {
     --navy:   #0B1F3A;
     --navy-2: #16325A;
@@ -41,12 +42,50 @@ const CSS = `
     --page-bg: #080E15;
   }
   body { font-family: var(--fb); background: var(--page-bg); color: var(--navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { -webkit-tap-highlight-color: transparent; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes slideScreen { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:none; } }
   .a-up { animation: fadeUp 0.4s ease both; }
   .d1{animation-delay:.06s} .d2{animation-delay:.12s} .d3{animation-delay:.18s} .d4{animation-delay:.24s}
+
+  /* ── MOBILE RESPONSIVE ── */
+  .phone-nav-row { display: flex; align-items: center; gap: 16px; }
+  .phone-features-row { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: flex-start; }
+  .phone-scale-wrap { transform-origin: top center; }
+  .nav-arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--muted); transition: all 0.2s; flex-shrink: 0; }
+  .nav-arrow:hover { background: var(--border); }
+  .features-panel { max-width: 400px; width: 100%; }
+
+  @media (max-width: 768px) {
+    .phone-features-row { flex-direction: column; align-items: center; gap: 24px; }
+    .features-panel { max-width: 100%; }
+    .phone-scale-wrap { transform: scale(0.85); margin: -20px 0; }
+    .nav-arrow { width: 36px; height: 36px; }
+    .screen-pills { gap: 6px !important; }
+    .screen-pills button { padding: 6px 14px !important; font-size: 12px !important; }
+    .role-toggle button { padding: 8px 20px !important; font-size: 13px !important; }
+    .feature-overview-grid { grid-template-columns: 1fr !important; }
+    .tech-pills { gap: 6px !important; }
+    .tech-pills span { font-size: 11px !important; padding: 4px 10px !important; }
+  }
+
+  @media (max-width: 480px) {
+    .phone-scale-wrap { transform: scale(0.72); margin: -40px 0; }
+    .nav-arrow { width: 32px; height: 32px; }
+    .screen-pills { display: none !important; }
+    .intro-heading { font-size: 24px !important; }
+    .intro-subtext { font-size: 13px !important; }
+    .features-panel > div { padding: 20px 16px !important; }
+    .features-panel .feat-title { font-size: 14px !important; }
+    .features-panel .feat-item { font-size: 12px !important; }
+  }
+
+  @media (max-width: 360px) {
+    .phone-scale-wrap { transform: scale(0.62); margin: -60px 0; }
+    .intro-heading { font-size: 20px !important; }
+  }
   .screen-enter { animation: slideScreen 0.35s cubic-bezier(0.4,0,0.2,1) both; }
 `;
 
@@ -623,11 +662,11 @@ export default function App() {
                 iOS + Android Concept
               </div>
             </div>
-            <h1 style={{ fontFamily: "var(--fd)", fontSize: "clamp(28px,4vw,44px)", fontWeight: 900, color: "var(--navy)", letterSpacing: -1, lineHeight: 1.1, marginBottom: 14 }}>
+            <h1 className="intro-heading" style={{ fontFamily: "var(--fd)", fontSize: "clamp(28px,4vw,44px)", fontWeight: 900, color: "var(--navy)", letterSpacing: -1, lineHeight: 1.1, marginBottom: 14 }}>
               Native apps for every<br />
               <span style={{ color: "#E8671A" }}>person on the platform.</span>
             </h1>
-            <p style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.65, maxWidth: 560, margin: "0 auto" }}>
+            <p className="intro-subtext" style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.65, maxWidth: 560, margin: "0 auto" }}>
               Two purpose-built apps — one for vendors in the field, one for managers on the go. Real-time updates,
               job acceptance, photo documentation, and request submission — all native mobile experiences.
             </p>
@@ -635,7 +674,7 @@ export default function App() {
 
           {/* Role toggle */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 44 }}>
-            <div style={{ display: "flex", background: "var(--card)", border: "1px solid var(--border)", borderRadius: 14, padding: 5, gap: 4, boxShadow: "0 2px 10px rgba(11,31,58,0.08)" }}>
+            <div className="role-toggle" style={{ display: "flex", background: "var(--card)", border: "1px solid var(--border)", borderRadius: 14, padding: 5, gap: 4, boxShadow: "0 2px 10px rgba(11,31,58,0.08)" }}>
               {["vendor","manager"].map(r => (
                 <button key={r} onClick={() => { setRole(r); setScreen(0); }} style={{ padding: "10px 28px", borderRadius: 10, border: "none", cursor: "pointer", fontFamily: "var(--fb)", fontSize: 14, fontWeight: 700, transition: "all 0.2s", background: role === r ? "#0B1F3A" : "transparent", color: role === r ? "white" : "var(--muted)" }}>
                   {r === "vendor" ? "Vendor App" : "Manager App"}
@@ -645,7 +684,7 @@ export default function App() {
           </div>
 
           {/* Screen pills */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 44, flexWrap: "wrap" }}>
+          <div className="screen-pills" style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 44, flexWrap: "wrap", padding: "0 8px" }}>
             {screens.map((s, i) => (
               <button key={i} onClick={() => setScreen(i)} style={{ padding: "8px 20px", borderRadius: 100, border: `1.5px solid ${screen === i ? "#E8671A" : "var(--border)"}`, background: screen === i ? "rgba(232,103,26,0.12)" : "var(--card)", color: screen === i ? "#E8671A" : "var(--muted)", fontFamily: "var(--fb)", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}>
                 {s.label}
@@ -654,35 +693,37 @@ export default function App() {
           </div>
 
           {/* Phone + features */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 40, flexWrap: "wrap", marginBottom: 64, alignItems: "flex-start" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <button onClick={prevScreen} style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid var(--border)", background: "var(--card)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--muted)", transition: "all 0.2s", flexShrink: 0 }}>
+          <div className="phone-features-row" style={{ marginBottom: 64 }}>
+            <div className="phone-nav-row">
+              <button className="nav-arrow" onClick={prevScreen}>
                 <span style={{ width: 18, height: 18, display: "flex" }}>{I.left}</span>
               </button>
-              <div className="a-up" key={`${role}-${screen}`}>
-                <Phone type={screens[screen].device} label={screens[screen].label}>
-                  {screens[screen].comp}
-                </Phone>
+              <div className="phone-scale-wrap">
+                <div className="a-up" key={`${role}-${screen}`}>
+                  <Phone type={screens[screen].device} label={screens[screen].label}>
+                    {screens[screen].comp}
+                  </Phone>
+                </div>
               </div>
-              <button onClick={nextScreen} style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid var(--border)", background: "var(--card)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--muted)", transition: "all 0.2s", flexShrink: 0 }}>
+              <button className="nav-arrow" onClick={nextScreen}>
                 <span style={{ width: 18, height: 18, display: "flex" }}>{I.right}</span>
               </button>
             </div>
 
-            <div className="a-up d2" style={{ maxWidth: 400, width: "100%" }} key={`feat-${role}-${screen}`}>
+            <div className="features-panel a-up d2" key={`feat-${role}-${screen}`}>
               <div style={{ background: "var(--card)", borderRadius: 24, border: "1px solid var(--border)", padding: "28px 24px", boxShadow: "0 4px 24px rgba(11,31,58,0.07)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                   <div style={{ width: 28, height: 28, borderRadius: 8, background: role === "vendor" ? "#E8671A" : "#0B1F3A", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div style={{ color: "white", width: 14, height: 14 }}>{role === "vendor" ? I.jobs : I.build}</div>
                   </div>
-                  <div style={{ fontFamily: "var(--fd)", fontSize: 15, fontWeight: 800, color: "var(--navy)" }}>{screens[screen].label}</div>
+                  <div className="feat-title" style={{ fontFamily: "var(--fd)", fontSize: 15, fontWeight: 800, color: "var(--navy)" }}>{screens[screen].label}</div>
                 </div>
                 <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 20, lineHeight: 1.5 }}>
                   {role === "vendor" ? "Built for vendors in the field — fast actions, minimal taps." : "Built for property managers on the go — full portfolio control."}
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {(features[role][screen] || []).map(f => (
-                    <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "var(--navy)" }}>
+                    <div className="feat-item" key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "var(--navy)" }}>
                       <div style={{ width: 18, height: 18, borderRadius: "50%", background: "rgba(29,184,122,0.12)", border: "1px solid rgba(29,184,122,0.30)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
                         <div style={{ color: "#1DB87A", width: 9, height: 9 }}>{I.check}</div>
                       </div>
@@ -705,7 +746,7 @@ export default function App() {
               <div style={{ fontFamily: "var(--fd)", fontSize: "clamp(22px,3vw,30px)", fontWeight: 900, color: "var(--navy)", marginBottom: 8 }}>Full App Feature Overview</div>
               <div style={{ fontSize: 14, color: "var(--muted)" }}>What both apps ship with at launch</div>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
+            <div className="feature-overview-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
               {[
                 { title: "Vendor App", sub: "iOS + Android", color: "#E8671A", features: ["Dashboard with live job status","Available Jobs Board (real-time)","Job acceptance & scheduling","Step-by-step completion workflow","Native photo documentation","GPS navigation integration","Earnings & payout history","Team member management","Performance ratings & reviews","Push notifications for new jobs","Offline mode for job details","SMS-based authentication"] },
                 { title: "Manager App", sub: "iOS + Android", color: "#0B1F3A", features: ["Portfolio dashboard overview","Submit requests in under 60s","Real-time job tracking","Vendor location & ETA","Photo review on completion","Invoice review & approval","Multi-property management","Push notifications & alerts","Spend analytics by property","Vendor rating & feedback","Emergency request (high priority)","Face ID / biometric login"] },
@@ -741,7 +782,7 @@ export default function App() {
             <div style={{ fontSize: 14, color: "rgba(255,255,255,0.60)", lineHeight: 1.65, marginBottom: 18 }}>
               Single codebase for both iOS and Android. Reuses 95% of the web platform's business logic and API layer.
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            <div className="tech-pills" style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {["React Native","Expo","TypeScript","React Navigation","Push Notifications (Expo)","Stripe Mobile SDK","Google Maps SDK","Camera Roll API","Biometrics / Face ID","AsyncStorage","Socket.io (real-time)","Node.js / Express API"].map(t=>(
                 <span key={t} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 100, padding: "5px 14px", fontSize: 12, fontWeight: 600 }}>{t}</span>
               ))}
